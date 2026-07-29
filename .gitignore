@@ -1,0 +1,94 @@
+# -----------------------
+# Python
+# -----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# -----------------------
+# Virtual Environments
+# -----------------------
+venv/
+.venv/
+env/
+ENV/
+
+# -----------------------
+# Environment Variables
+# -----------------------
+.env
+
+# -----------------------
+# VS Code
+# -----------------------
+.vscode/
+
+# -----------------------
+# JetBrains
+# -----------------------
+.idea/
+
+# -----------------------
+# macOS
+# -----------------------
+.DS_Store
+
+# -----------------------
+# Windows
+# -----------------------
+Thumbs.db
+desktop.ini
+
+# -----------------------
+# Logs
+# -----------------------
+*.log
+logs/
+
+# -----------------------
+# Docker
+# -----------------------
+*.pid
+
+# Ignore local database files (if SQLite is ever used)
+*.db
+*.sqlite3
+
+# -----------------------
+# Superset
+# -----------------------
+superset_home/
+superset.db
+
+# -----------------------
+# Build / Distribution
+# -----------------------
+build/
+dist/
+*.egg
+
+# -----------------------
+# Temporary Files
+# -----------------------
+*.tmp
+*.bak
+*.swp
+
+# -----------------------
+# Docker Volumes (if stored locally)
+# -----------------------
+postgres_data/
+kafka_data/
+zookeeper_data/
+
+# -----------------------
+# Jupyter
+# -----------------------
+.ipynb_checkpoints/

@@ -1,0 +1,12 @@
+import os
+
+KAFKA_BOOTSTRAP_SERVERS = os.getenv(
+    "KAFKA_BOOTSTRAP_SERVERS",
+    "kafka:29092"
+)
+
+AUTO_OFFSET_RESET = "earliest"
+
+ENABLE_AUTO_COMMIT = True
+
+CONSUMER_TIMEOUT_MS = 1000

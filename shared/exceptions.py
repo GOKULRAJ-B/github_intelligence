@@ -1,0 +1,2 @@
+class KafkaConnectionError(Exception):
+    pass
