@@ -1,6 +1,6 @@
 Flask==3.0.3
 kafka-python==2.0.2
-gunicorn==22.0.0Flask==3.0.3
+gunicorn==22.0.0
 kafka-python==2.0.2
 gunicorn==22.0.0
 SQLAlchemy==2.0.36

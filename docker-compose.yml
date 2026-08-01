@@ -102,6 +102,49 @@ services:
       - postgres
 
     restart: unless-stopped
+  
+  pr_consumer:
+    build:
+      context: .
+      dockerfile: consumers/pr_consumer/Dockerfile
+
+    container_name: pr_consumer
+
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/git_analytics
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: "1"
+
+    volumes:
+      - .:/app
+
+    depends_on:
+      - kafka
+      - postgres
+
+    restart: unless-stopped
+  hotspot_consumer:
+    build:
+      context: .
+      dockerfile: consumers/hotspot_consumer/Dockerfile
+
+    container_name: hotspot_consumer
+
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/git_analytics
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: "1"
+
+    volumes:
+      - .:/app
+
+    depends_on:
+      - kafka
+      - postgres
+
+    restart: unless-stopped
 
 volumes:
   kafka_data:
