@@ -242,3 +242,29 @@ class DeveloperRanking(Base):
     merged_prs = Column(Integer, default=0)
 
     score = Column(Integer, default=0)
+class DeveloperChurn(Base):
+
+    __tablename__ = "developer_churn"
+
+    id = Column(
+        Integer,
+        primary_key=True,
+    )
+
+    contributor_id = Column(
+        Integer,
+        ForeignKey("contributors.id"),
+        nullable=False,
+    )
+
+    repository_id = Column(
+        Integer,
+        ForeignKey("repositories.id"),
+        nullable=False,
+    )
+
+    last_commit = Column(DateTime)
+
+    inactive_days = Column(Integer)
+
+    status = Column(String(20))

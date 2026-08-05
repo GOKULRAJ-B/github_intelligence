@@ -185,6 +185,24 @@ services:
       - postgres
 
     restart: unless-stopped
+  
+  churn_consumer:
+    build:
+      context: .
+      dockerfile: consumers/churn_consumer/Dockerfile
+
+    container_name: churn_consumer
+
+    depends_on:
+      - kafka
+      - postgres
+
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/git_analytics
+      PYTHONPATH: /app
+
+    restart: unless-stopped
 
 volumes:
   kafka_data:
