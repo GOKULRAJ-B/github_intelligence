@@ -166,6 +166,25 @@ services:
       - postgres
 
     restart: unless-stopped
+  
+  analytics_api:
+    build:
+      context: .
+      dockerfile: analytics/Dockerfile
+
+    container_name: analytics_api
+
+    ports:
+      - "8000:8000"
+
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/git_analytics
+      PYTHONPATH: /app
+
+    depends_on:
+      - postgres
+
+    restart: unless-stopped
 
 volumes:
   kafka_data:
