@@ -219,3 +219,26 @@ class FileHotspot(Base):
         Integer,
         default=0,
     )
+
+class DeveloperRanking(Base):
+    __tablename__ = "developer_rankings"
+
+    id = Column(Integer, primary_key=True)
+
+    contributor_id = Column(
+        Integer,
+        ForeignKey("contributors.id"),
+        nullable=False,
+    )
+
+    repository_id = Column(
+        Integer,
+        ForeignKey("repositories.id"),
+        nullable=False,
+    )
+
+    total_commits = Column(Integer, default=0)
+
+    merged_prs = Column(Integer, default=0)
+
+    score = Column(Integer, default=0)

@@ -145,6 +145,27 @@ services:
       - postgres
 
     restart: unless-stopped
+  ranking_consumer:
+    build:
+      context: .
+      dockerfile: consumers/ranking_consumer/Dockerfile
+
+    container_name: ranking_consumer
+
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/git_analytics
+      PYTHONPATH: /app
+      PYTHONUNBUFFERED: "1"
+
+    volumes:
+      - .:/app
+
+    depends_on:
+      - kafka
+      - postgres
+
+    restart: unless-stopped
 
 volumes:
   kafka_data:
