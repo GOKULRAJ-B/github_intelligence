@@ -203,6 +203,25 @@ services:
       PYTHONPATH: /app
 
     restart: unless-stopped
+  
+  superset:
+    build:
+      context: ./superset
+
+    container_name: superset
+
+    ports:
+      - "8088:8088"
+
+    environment:
+      SUPERSET_SECRET_KEY: mysecretkey
+
+    depends_on:
+      - postgres
+
+    restart: unless-stopped
+
+    command: /init.sh
 
 volumes:
   kafka_data:
